@@ -35,3 +35,40 @@
     cursor: pointer;
     background-color: rgb(212, 164, 101);
 }
+
+.details {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.details-image {
+    width: 300px;
+    height: 500px;
+}
+
+.details-h1-title {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.details-p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}
+
+.details-h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 50px;
+    font-weight: bold;
+    color: rgb(185, 76, 76);
+}
+
+.details-basket-btn {
+    margin-top: 25px;
+    border: none;
+    padding: 10px;
+    background-color: rgb(185, 76, 76);
+    color: #fff;
+    border-radius: 5px;
+}

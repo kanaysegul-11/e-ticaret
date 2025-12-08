@@ -15,7 +15,7 @@ function Product({ product }) {
                 <h3 className='card-title'>{price}₺</h3>
             </div>
             <div className='flex-row'>
-                <button onClick={() => navigate('/product-detail/' + id)} className='detail-button' >Detayına Git</button>
+                <button onClick={() => navigate('/product-details/' + id)} className='detail-button' >Detayına Git</button>
             </div>
         </div>
     )

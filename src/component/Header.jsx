@@ -3,9 +3,12 @@ import '../css/header.css'
 import { RiShoppingBasket2Line } from "react-icons/ri";
 import { IoIosMoon } from "react-icons/io";
 import { CiLight } from "react-icons/ci";
+import { useNavigate } from 'react-router-dom';
 
 
 export default function Header() {
+
+    const navigate = useNavigate();
 
     const [theme, setTheme] = useState(false);
 
@@ -25,8 +28,8 @@ export default function Header() {
     return (
         <div style={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "space-between" }}>
             <div className='flex-row' >
-                <img className='logo' src="./src/images/logo.png" alt="" />
-                <p className='logo-text'>KAN A.Ş</p>
+                <img onClick={() => navigate("/")} className='logo' src="./src/images/logo.png" alt="" />
+                <p className='logo-text' >KAN A.Ş</p>
             </div>
             <div className='flex-row'>
                 <input className='search-input' type="text" placeholder='Bir şeyler ara?' />
