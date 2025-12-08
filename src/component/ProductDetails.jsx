@@ -6,6 +6,7 @@ import '../App.css'
 import { setSelectedProduct } from '../redux/slices/prodouctSlices';
 import { CiCirclePlus } from "react-icons/ci";
 import { CiCircleMinus } from "react-icons/ci";
+import { addToBasket } from '../redux/slices/basketSlice';
 
 
 
@@ -24,6 +25,18 @@ function ProductDetails() {
 
     const decarment = () => {
         setCount(count - 1)
+    }
+
+    const addBasket = () => {
+        const payload = {
+            id,
+            price,
+            image,
+            title,
+            description,
+            count
+        }
+        dispatch(addToBasket(payload))
     }
 
     const dispatch = useDispatch();
@@ -51,7 +64,7 @@ function ProductDetails() {
                     <CiCirclePlus onClick={incerment} style={{ fontSize: "40px", marginRight: "5px" }} /> <span style={{ fontSize: "35px" }}>{count}</span><CiCircleMinus onClick={decarment} style={{ fontSize: "40px", marginLeft: "5px" }} />
                 </div>
                 <div>
-                    <button className='details-basket-btn'>Sepete Ekle</button>
+                    <button className='details-basket-btn' onClick={addBasket}>Sepete Ekle</button>
                 </div>
             </div>
         </div>

@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import '../css/header.css'
-import { RiShoppingBasket2Line } from "react-icons/ri";
+import { CiShoppingBasket } from "react-icons/ci";
 import { IoIosMoon } from "react-icons/io";
 import { CiLight } from "react-icons/ci";
 import { useNavigate } from 'react-router-dom';
-
+import Badge from '@mui/material/Badge';
+import { useSelector } from 'react-redux';
+import { store } from '../redux/store';
 
 export default function Header() {
 
@@ -12,6 +14,7 @@ export default function Header() {
 
     const [theme, setTheme] = useState(false);
 
+    const { products } = useSelector((store) => store.basket);
     const changeThem = () => {
         const root = document.getElementById("root");
         setTheme(!theme);
@@ -33,9 +36,12 @@ export default function Header() {
             </div>
             <div className='flex-row'>
                 <input className='search-input' type="text" placeholder='Bir şeyler ara?' />
-                <div >
+                <div className='flex-row'>
                     {theme ? <IoIosMoon className='icon' onClick={changeThem} /> : <CiLight className='icon' onClick={changeThem} />}
-                    <RiShoppingBasket2Line className='icon' />
+                    <Badge badgeContent={products.length} color='error'>
+                        <CiShoppingBasket style={{ marginRight: "2px" }} className='icon' />
+                    </Badge>
+
                 </div>
 
             </div>
