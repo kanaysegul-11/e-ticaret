@@ -11,8 +11,12 @@ const getBasketFormStorage = () => {
 
 const initialState = {
     products: getBasketFormStorage(),
+    drawer: false,
+    totalAmount: 0
 
 }
+
+
 
 const writeFromBasketToStorage = (basket) => {
     localStorage.setItem("basket", JSON.stringify(basket))
@@ -35,9 +39,19 @@ export const basketSlice = createSlice({
                 state.products = [...state.products, action.payload];
                 writeFromBasketToStorage(state.products);
             }
+        },
+        setDrawer: (state) => {
+            state.drawer = !state.drawer;
+        },
+        calculaBasket: (state) => {
+            state.totalAmount = 0;
+            state.products && state.products.map((product) => {
+                state.totalAmount += product.price * product.count;
+            })
         }
+
     }
 })
-export const { addToBasket } = basketSlice.actions
+export const { addToBasket, setDrawer, calculaBasket } = basketSlice.actions
 
 export default basketSlice.reducer
